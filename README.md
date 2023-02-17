@@ -417,3 +417,46 @@ macro_rules!：rust宏最基本的宏定义形式，可以把它看作一种模�
 
 #[macro_attr]：该宏标记用于将一个或多个属性应用于宏的参数，例如#[macro_attr(foo)]，将foo属性应用于参数。
 ```
+
+# 关系型数据库
+
+## 请帮我设计一套权限管理相关的表，要求区分账户，角色，菜单，给出标准SQL的建表语句
+好的，下面是一套简单的权限管理表的设计，包括账户、角色和菜单三个实体，以及一个用于关联账户和角色的关系表，一个用于关联角色和菜单的关系表：
+```sql
+CREATE TABLE account (
+  id INT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE role (
+  id INT PRIMARY KEY,
+  name VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE menu (
+  id INT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  url VARCHAR(100) NOT NULL,
+  parent_id INT,
+  FOREIGN KEY (parent_id) REFERENCES menu(id)
+);
+
+CREATE TABLE account_role (
+  account_id INT,
+  role_id INT,
+  PRIMARY KEY (account_id, role_id),
+  FOREIGN KEY (account_id) REFERENCES account(id),
+  FOREIGN KEY (role_id) REFERENCES role(id)
+);
+
+CREATE TABLE role_menu (
+  role_id INT,
+  menu_id INT,
+  PRIMARY KEY (role_id, menu_id),
+  FOREIGN KEY (role_id) REFERENCES role(id),
+  FOREIGN KEY (menu_id) REFERENCES menu(id)
+);
+
+```
+其中，`account` 表存储账户信息，包括账户id、账户名和密码。`role` 表存储角色信息，包括角色id和角色名。`menu` 表存储菜单信息，包括菜单id、菜单名称、菜单链接地址和父菜单id。`account_role` 表用于建立账户和角色之间的多对多关系。`role_menu` 表用于建立角色和菜单之间的多对多关系。
