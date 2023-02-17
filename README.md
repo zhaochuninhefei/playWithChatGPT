@@ -243,6 +243,42 @@ public class Test {
 
 # golang
 
+## 请帮我用go实现一个快速排序算法
+```go
+package main
+
+import "fmt"
+
+func quickSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
+	}
+
+	pivot := arr[0]
+	var left []int
+	var right []int
+
+	for i := 1; i < len(arr); i++ {
+		if arr[i] <= pivot {
+			left = append(left, arr[i])
+		} else {
+			right = append(right, arr[i])
+		}
+	}
+
+	left = quickSort(left)
+	right = quickSort(right)
+
+	return append(append(left, pivot), right...)
+}
+
+func main() {
+	arr := []int{5, 4, 3, 2, 1}
+	fmt.Println(quickSort(arr))
+}
+
+```
+
 ## 用go实现一段代码，实现一个平衡二叉树
 
 ```go
