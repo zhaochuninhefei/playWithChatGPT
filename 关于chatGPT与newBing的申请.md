@@ -19,7 +19,7 @@
 # newBing
 new bing目前不需要科学上网，不需要境外手机服务，你需要做的是:
 
-1. 注册一个微软账户(https://account.microsoft.com/)，国内的邮箱就可以，比如我就用qq邮箱注册的。
+1. 注册一个微软账户(`https://account.microsoft.com/`)，国内的邮箱就可以，比如我就用qq邮箱注册的。
 2. 由于咱们访问bing.com时会自动跳转到`cn.bing.com`，所以需要为本地edge浏览器安装一个用来修改http头属性`X-Forwarded-For`的插件，比如ModHeader，这个网上也有很多教程，这里也不多说了。或者直接使用dev版本的edge，这个方式我没试过，据说可以。
 3. 访问`bing.com/new`，按照提示申请加入newBing的候补队列，微软的东西做的不太友好，我当时一顿瞎操作，也不知道怎么就加入候补队列了。。。加入成功的话，你的微软帐号注册邮箱会受到一封邮件：`You're on the waitlist for the new Bing!`，然后就且等着吧。。。
 4. 大概一周以后，你可能会收到通知你已经可以使用newBing了的邮件:`You're in! Welcome to the new Bing!`
