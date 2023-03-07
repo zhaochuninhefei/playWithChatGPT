@@ -27,7 +27,7 @@
 
 另外，某些工具或插件也需要你输入自己的APIKey，和步骤2一样去生成一下即可。
 
-> openai官方发邮件说这个api很便宜: `It’s priced at $0.002 per 1K tokens, which is 10x cheaper than the existing GPT-3.5 models.`。。。但似乎现在可以免费生成key。。。emmm。。。
+> openai官方发邮件说这个api很便宜: `It’s priced at $0.002 per 1K tokens, which is 10x cheaper than the existing GPT-3.5 models.`。。。然后我看了下自己的openAI账户，原来注册的时候送了18刀，到`2023/4/1`过期，所以现在还能免费用一阵子。。。
 
 
 # newBing
