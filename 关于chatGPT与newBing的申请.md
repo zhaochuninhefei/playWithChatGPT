@@ -18,6 +18,18 @@
 > 
 > 所以真要把chatGPT当作工作助手的话，大概要购买plus服务，一个月20刀。。。用不起用不起。。。
 
+## 关于openai的API
+注册好openAI的帐号以后，你还可以用openAI的API，你需要:
+
+1. 登录openai站点以后去`https://platform.openai.com/account/api-keys`生成自己的`API keys`。
+2. 用python3(3.6以上)写代码，具体参考官方文档`https://platform.openai.com/docs/guides/chat`，目前的最新模型是`gpt-3.5-turbo`。这里其实可以直接问chatGPT具体怎么做。。。或者问new bing也行。。。
+> 关于第2步，貌似现在访问openai的API会被未知力量挡住了，也需要`science go online`了。。。
+
+另外，某些工具或插件也需要你输入自己的APIKey，和步骤2一样去生成一下即可。
+
+> openai官方发邮件说这个api很便宜: `It’s priced at $0.002 per 1K tokens, which is 10x cheaper than the existing GPT-3.5 models.`。。。但似乎现在可以免费生成key。。。emmm。。。
+
+
 # newBing
 new bing目前不需要`science go online`，不需要境外手机服务，你需要做的是:
 
