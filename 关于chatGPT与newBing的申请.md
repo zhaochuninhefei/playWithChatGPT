@@ -22,8 +22,12 @@
 注册好openAI的帐号以后，你还可以用openAI的API，你需要:
 
 1. 登录openai站点以后去`https://platform.openai.com/account/api-keys`生成自己的`API keys`。
-2. 用python3(3.6以上)写代码，具体参考官方文档`https://platform.openai.com/docs/guides/chat`，目前的最新模型是`gpt-3.5-turbo`。这里其实可以直接问chatGPT具体怎么做。。。或者问new bing也行。。。
-> 关于第2步，貌似现在访问openai的API会被未知力量挡住了，也需要`science go online`了。。。
+2. 用python3(3.6以上)写代码，具体参考官方文档`https://platform.openai.com/docs/guides/chat`，模型可以选择`gpt-3.5-turbo`。这里其实可以直接问chatGPT具体怎么做。。。或者问new bing也行。。。
+> 关于第2步，现在访问openai的API也需要`science go online`了。。。
+
+具体的API使用示例可以参考:
+
+<a href="./play-openai" target="_blank">play-openai</a>
 
 另外，某些工具或插件也需要你输入自己的APIKey，和步骤2一样去生成一下即可。
 
