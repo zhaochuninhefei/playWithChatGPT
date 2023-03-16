@@ -32,14 +32,18 @@
 
 # newBing
 new bing目前不需要`science go online`，不需要境外手机服务，你需要做的是:
+> 2023/3/13以后，new bing 也需要`science go online`才能访问了。。。而且必须是开客户端的那种。。。
 
 1. 注册一个微软账户(`https://account.microsoft.com/`)，国内的邮箱就可以，比如我就用qq邮箱注册的。注册好了以后在edge和bing站点上登录你的微软账户。
    > 微软的所有站点访问起来都太慢，即使注册成功，登录也很慢。。。你需要耐心。。。lots of patience。。。
 2. 由于咱们访问`bing.com`时会自动跳转到`cn.bing.com`，所以需要为本地edge浏览器安装一个用来修改http头属性`X-Forwarded-For`的插件，比如ModHeader，这个网上也有很多教程，这里也不多说了。或者直接使用dev版本的edge，这个方式我没试过，据说可以。
+   > 开启`science go online`后就不会自动跳转到`cn.bing.com`了，也就不用插件了。
 3. 访问`bing.com/new`，按照提示申请加入newBing的候补队列，微软的东西做的不太友好，我当时找不到申请入口，然后一顿瞎操作，也不知道怎么搞地就加入候补队列了。。。加入成功的话，你的微软帐号注册邮箱会收到一封邮件：`You're on the waitlist for the new Bing!`，然后就且等着吧。。。
    > 微软号称做了这两个事情可以更快地通过候补正式使用newBing: 一个是本地edge浏览器的home页面设置为bing并登录你的微软账户，另一个是手机上下载bing浏览器并登录你的微软账户。
 4. 大概几天以后，如果你收到了通知邮件:`You're in! Welcome to the new Bing!`，那么恭喜你，通过了候补，可以使用newBing了。。。我当时21号进入候补队列，25号收到的`you are in`通知邮件。。。
 5. 此时你重新打开edge(ModHeader要一直开着)，然后访问`bing.com`，只要不跳到`cn.bing.com`，你就可以在上方菜单里找到聊天，点击它，就可以开始浪了。
+   > 开启`science go online`后自然也不用一直开插件。
+
 
 new bing 可以使用的话，你就能看到这个"聊天"按钮
 
