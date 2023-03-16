@@ -6,28 +6,28 @@ play-openai
 
 # 记录
 
-## 创建play-openai工程
+## 1.创建play-openai工程
 使用pycharm创建本地`play-openai`工程，选择创建本地环境目录`venv`，并使用本地python，版本`3.8.10`。
 
-## 安装openai
+## 2.安装openai
 在打开的pycharm工程中，选择`File -> Settings -> Project:play-openai -> Python interprefer`。
 
 在打开的界面列表中，选择左上方的`+`按钮，然后在弹出框里搜索`openai`，选择并安装`openai`，注意版本信息，目前是`v0.27.2`。
 
 安装成功后，在`Python interprefer`界面就会看到`openai`及其相关依赖库。
 
-## 安装dotenv
+## 3.安装dotenv
 在打开的pycharm工程中，选择`File -> Settings -> Project:play-openai -> Python interprefer`。
 
 在打开的界面列表中，选择左上方的`+`按钮，然后在弹出框里搜索`python-dotenv`，选择并安装`python-dotenv`，目前版本是`1.0.0`。
 
-## 创建环境文件与预埋openAI API Key
+## 4.创建环境文件与预埋openAI API Key
 在根目录下创建`.env`文件，填入OPENAI_API_KEY:
 ```
 OPENAI_API_KEY=<你的openAI API Key>
 ```
 
-## 测试API
+## 5.测试API
 首先，你需要`import openai`，然后定义一个测试方法:
 ```python
 def testGpt():
@@ -83,7 +83,7 @@ def testGpt():
 
 接下来，就可以像`main.py`中的`askAndAnwser`那样，编写一个自己的问答程序了。
 
-## 问答示例
+## 6.问答示例
 ```
 我: 你好啊，我应该怎么称呼你?
 openAI API:你可以称呼我为AI助手。有什么可以帮助你的？
