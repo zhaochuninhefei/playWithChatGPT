@@ -42,7 +42,9 @@ def askAndAnwser():
             ]
         )
 
+        print()
         print("openAI API:" + response["choices"][0]["message"]["content"])
+        print()
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
