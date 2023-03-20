@@ -53,7 +53,7 @@ def testGpt():
 ```
 注意，通过`openai.ChatCompletion.create`创建一个openAI的API请求，目前使用的模型是`gpt-3.5-turbo`，必要的参数只有两个:
 - model 填入模型名称，如这里的`gpt-3.5-turbo`
-- messages 填入prompt与问题。 role是`system`时，content是一种prompt，用来写一些提示；role是user时，表示这是一个提问; role是assistant时，表示这是一个回答，通过成对的user与assistant问答，给openAI模型进一步的提示，可以理解为当前模型的训练数据。而最后一个没有回答的提问，就是让模型回答的问题。
+- messages 填入prompt。 role是`system`时，content用来写一些提示；role是user时，表示这是一个提问; role是assistant时，表示这是一个回答，通过成对的user与assistant问答，给openAI模型进一步的提示，这就是语境内学习的例子。而最后一个没有回答的提问，就是让模型回答的问题。
 
 返回的response结构如下:
 ```json
