@@ -99,8 +99,8 @@ def talk():
 
         if question.lower() == "load":
             if os.path.exists(filename):
-                with open(filename, "r") as f:
-                    history_global = json.load(f)
+                with open(filename, "r") as history_file:
+                    history_global = json.load(history_file)
             # 如果文件不存在，将messages初始化为空数组
             else:
                 history_global = [{"role": "system", "content": "You are a helpful assistant."}]
@@ -113,8 +113,8 @@ def talk():
                 print("请指定导入文件路径")
                 continue
             if os.path.exists(load_file_path):
-                with open(load_file_path, "r") as f:
-                    history_global = json.load(f)
+                with open(load_file_path, "r") as history_file:
+                    history_global = json.load(history_file)
             # 如果文件不存在，将messages初始化为空数组
             else:
                 print("指定导入文件不存在: " + load_file_path)
@@ -131,8 +131,8 @@ def talk():
                 print("请指定查看文件路径")
                 continue
             if os.path.exists(show_file_path):
-                with open(show_file_path, "r") as f:
-                    history_read = json.load(f)
+                with open(show_file_path, "r") as history_file:
+                    history_read = json.load(history_file)
                     print_history(history_read)
             # 如果文件不存在，将messages初始化为空数组
             else:
@@ -152,7 +152,7 @@ def talk():
             continue
 
         if question.lower().startswith("del"):
-            del_file_path = question[4:]
+            del_file_path = question[4:].strip()
             if len(del_file_path) == 0:
                 print("请指定删除文件路径")
                 continue
@@ -182,6 +182,10 @@ def talk():
         print(f"response_completion_tokens: {response_completion_tokens}")
         response_total_tokens = response["usage"]["total_tokens"]
         print(f"response_total_tokens: {response_total_tokens}")
+
+        print(f"本次响应id:{response_id}, 本次响应输入字数: {response_prompt_tokens}, 本次响应回复字数: {response_completion_tokens}, "
+              f"本次响应总次数: {response_total_tokens}")
+
         answer = response["choices"][0]["message"]["content"]
         print("openAI API:" + answer)
         history_global.append({"role": "assistant", "content": answer})
@@ -207,4 +211,3 @@ def list_files(directory):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     talk()
-

@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def testGpt():
+
+def test_gpt():
     print("testGpt...")
 
     question = "Who is the second best player in NBA history?"
@@ -27,7 +28,8 @@ def testGpt():
     print("")
     print("answer:" + response["choices"][0]["message"]["content"])
 
-def askAndAnwser():
+
+def ask_and_answer():
     while True:
         question = input("我: ")
 
@@ -46,9 +48,10 @@ def askAndAnwser():
         print("openAI API:" + response["choices"][0]["message"]["content"])
         print()
 
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # testGpt()
-    askAndAnwser()
+    # test_gpt()
+    ask_and_answer()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
