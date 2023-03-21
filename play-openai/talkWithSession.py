@@ -175,15 +175,16 @@ def talk():
         print()
         # print(response)
         response_id = response["id"]
-        print("response_id: " + response_id)
+        # print("response_id: " + response_id)
         response_prompt_tokens = response["usage"]["prompt_tokens"]
-        print(f"response_prompt_tokens: {response_prompt_tokens}")
+        # print(f"response_prompt_tokens: {response_prompt_tokens}")
         response_completion_tokens = response["usage"]["completion_tokens"]
-        print(f"response_completion_tokens: {response_completion_tokens}")
+        # print(f"response_completion_tokens: {response_completion_tokens}")
         response_total_tokens = response["usage"]["total_tokens"]
-        print(f"response_total_tokens: {response_total_tokens}")
+        # print(f"response_total_tokens: {response_total_tokens}")
 
-        print(f"本次对话id:{response_id}, 本次对话输入字数: {response_prompt_tokens}, 本次对话回复字数: {response_completion_tokens}, "
+        print(f"本次对话id:{response_id}, 本次对话输入字数: {response_prompt_tokens}, ",
+              f"本次对话回复字数: {response_completion_tokens}, ",
               f"本次对话总字数: {response_total_tokens}")
 
         answer = response["choices"][0]["message"]["content"]
