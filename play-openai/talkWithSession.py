@@ -183,8 +183,8 @@ def talk():
         response_total_tokens = response["usage"]["total_tokens"]
         print(f"response_total_tokens: {response_total_tokens}")
 
-        print(f"本次响应id:{response_id}, 本次响应输入字数: {response_prompt_tokens}, 本次响应回复字数: {response_completion_tokens}, "
-              f"本次响应总次数: {response_total_tokens}")
+        print(f"本次对话id:{response_id}, 本次对话输入字数: {response_prompt_tokens}, 本次对话回复字数: {response_completion_tokens}, "
+              f"本次对话总字数: {response_total_tokens}")
 
         answer = response["choices"][0]["message"]["content"]
         print("openAI API:" + answer)
