@@ -38,16 +38,20 @@ def talk():
         if question.lower() == "help":
             print("指令帮助:")
             print(" help : 帮助")
-            print(" clear : 清空当前history")
-            print(" quit : 退出程序, 并将当前history保存到 history/default.json")
+            print(" clear : 清空当前会话历史")
+            print(" quit : 退出程序, 并将当前会话历史保存到 history/default.json")
             print(
-                " save : 将当前history保存到指定文件, 如 `save history/test.json`,如果没有指定具体文件，则保存到 history/default.json")
-            print(" save now: 将当前history保存到时间戳文件: history/<时间戳>.json")
+                " save : 将当前会话历史保存到指定文件, 如 `save history/test.json`,如果没有指定具体文件，则保存到 history/default.json")
+            print(" save now: 将当前会话历史保存到时间戳文件: history/<时间戳>.json")
             print(
-                " load : 导入指定文件作为当前history, 如 `load history/test.json`,如果没有指定具体文件，则导入 history/default.json")
+                " load : 导入指定文件作为当前会话历史, 如 `load history/test.json`,如果没有指定具体文件，则导入 history/default.json")
+            print(" list : 列出所有已保存的会话历史文件")
             print(
-                " show : 查看指定会话历史文件, 如 `show history/test.json`,如果没有指定具体文件，则查看 history/default.json")
-            print(" show cur: 查看当前会话历史")
+                " show : 查看指定会话历史文件, 如 `show history/test.json`,如果没有指定具体文件，则查看当前会话历史")
+            print(" del : 删除指定会话历史文件, 如 `del history/test.json`")
+            print(" del all: 删除`history/default.json`以外的所有会话历史文件")
+            print(" 其他: 作为openai API的user提问")
+            print()
             continue
 
         if question.lower() == "clear":
@@ -135,6 +139,30 @@ def talk():
                 print("指定查看文件不存在: " + show_file_path)
             continue
 
+        if question.lower() == "list":
+            list_files("history")
+            continue
+
+        if question.lower() == "del all":
+            for fn in os.listdir("history"):
+                if fn != "default.json":
+                    del_path = os.path.join("history", fn)
+                    os.remove(del_path)
+                    print("文件已删除: " + del_path)
+            continue
+
+        if question.lower().startswith("del"):
+            del_file_path = question[4:]
+            if len(del_file_path) == 0:
+                print("请指定删除文件路径")
+                continue
+            if os.path.exists(del_file_path):
+                os.remove(del_file_path)
+                print("文件已删除: " + del_file_path)
+            else:
+                print("指定删除文件不存在: " + del_file_path)
+            continue
+
         messages = history_global[-6:]
         messages.append({"role": "user", "content": question})
         history_global.append({"role": "user", "content": question})
@@ -166,10 +194,17 @@ def print_history(h):
         print()
 
 
+def list_files(directory):
+    files = []
+    for fn in os.listdir(directory):
+        path = os.path.join(directory, fn)
+        print(path)
+        if os.path.isfile(path):
+            files.append(path)
+    return files
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # num = 100
-    # print(f"数字:{num}")
     talk()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
