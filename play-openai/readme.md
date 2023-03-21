@@ -29,7 +29,7 @@ OPENAI_API_KEY=<你的openAI API Key>
 
 ## 5.测试API
 首先，你需要`import openai`，然后定义一个测试方法:
-```python
+```
 def testGpt():
     print("testGpt...")
 
@@ -56,7 +56,7 @@ def testGpt():
 - messages 填入prompt。 role是`system`时，content用来写一些提示；role是user时，表示这是一个提问; role是assistant时，表示这是一个回答，通过成对的user与assistant问答，给openAI模型进一步的提示，这就是语境内学习的例子。而最后一个没有回答的提问，就是让模型回答的问题。
 
 返回的response结构如下:
-```json
+```
 {
   "choices": [
     {
