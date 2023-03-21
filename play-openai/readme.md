@@ -136,3 +136,10 @@ Java SE 11是第一个LTS版本，Java SE 17将会是下一个LTS版本。使用
 ```
 
 > gpt-3.5写古诗很烂，另外它的训练数据有点老，所以不知道Java已经出到19了，马上20就出来了，也不知道现在Java的LTS发布周期变成两年了。。。
+
+## 7.talkWithSession
+talkWithSession是一个支持会话session的对话程序，通过每次将上次对话内容加入messages，让模型获取对话上下文信息。
+
+但这样有一个小问题，就是增加了每次调用API时的prompt的token数量，目前我在openai的API文档中没有发现使用接口`v1/chat/completions`时可以不重复统计prompt中历史消息的方法。
+
+不过gpt-3.5的API那么便宜，也不用太在意会话中token的重复统计了。
