@@ -186,9 +186,10 @@ def talk():
         print(f"本次对话id:{response_id}, 本次对话输入字数: {response_prompt_tokens}, ",
               f"本次对话回复字数: {response_completion_tokens}, ",
               f"本次对话总字数: {response_total_tokens}")
+        print()
 
         answer = response["choices"][0]["message"]["content"]
-        print("openAI API:" + answer)
+        print("openAI API: " + answer)
         history_global.append({"role": "assistant", "content": answer})
         print()
 
