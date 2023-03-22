@@ -1,5 +1,4 @@
 .idea
 venv
 .env
-/history/history_*.json
-/history/关于openai对中国的服务限制.json
+/history/*.json
