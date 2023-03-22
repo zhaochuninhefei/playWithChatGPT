@@ -120,106 +120,109 @@ public class InnerJoin {
 ```
 
 ## 用java实现一段代码，实现两个ArrayList之间的内联查询，内联字段是name
-以下是一个简单的Java代码示例，可以实现两个ArrayList之间的内联查询，内联字段是name：
+以下是使用Java实现两个ArrayList之间的内联查询，内联字段为name的示例代码：
 ```java
 import java.util.ArrayList;
 import java.util.List;
 
-public class InnerJoinExample {
-
+public class InlineQueryExample {
     public static void main(String[] args) {
+        // 创建两个ArrayList并添加元素
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Alice", 25));
+        personList.add(new Person("Bob", 30));
+        personList.add(new Person("Charlie", 35));
         
-        // 创建两个人员列表
-        List<Person> personList1 = new ArrayList<>();
-        personList1.add(new Person(1, "Alice", 20, "F"));
-        personList1.add(new Person(2, "Bob", 25, "M"));
-        personList1.add(new Person(3, "Charlie", 30, "M"));
-
-        List<Person> personList2 = new ArrayList<>();
-        personList2.add(new Person(4, "David", 35, "M"));
-        personList2.add(new Person(5, "Eve", 40, "F"));
-        personList2.add(new Person(6, "Alice", 45, "F"));
-
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(new Address("Alice", "123 Main St"));
+        addressList.add(new Address("Charlie", "456 Oak Ave"));
+        
         // 内联查询
-        List<Person> innerJoinResult = innerJoin(personList1, personList2);
-
-        // 打印结果
-        for (Person person : innerJoinResult) {
-            System.out.println(person);
-        }
-    }
-
-    // 内联查询的实现
-    public static List<Person> innerJoin(List<Person> list1, List<Person> list2) {
-        List<Person> result = new ArrayList<>();
-
-        for (Person p1 : list1) {
-            for (Person p2 : list2) {
-                if (p1.getName().equals(p2.getName())) {
-                    result.add(new Person(p1.getId(), p1.getName(), p1.getAge(), p2.getGender()));
+        List<PersonAddress> personAddressList = new ArrayList<>();
+        for (Person person : personList) {
+            for (Address address : addressList) {
+                if (person.getName().equals(address.getName())) {
+                    personAddressList.add(new PersonAddress(person.getName(), person.getAge(), address.getAddress()));
                 }
             }
         }
-        return result;
-    }
-
-    // 定义Person类
-    static class Person {
-        private int id;
-        private String name;
-        private int age;
-        private String gender;
-
-        public Person(int id, String name, int age, String gender) {
-            this.id = id;
-            this.name = name;
-            this.age = age;
-            this.gender = gender;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-
-        public String getGender() {
-            return gender;
-        }
-
-        public void setGender(String gender) {
-            this.gender = gender;
-        }
-
-        @Override
-        public String toString() {
-            return "Person [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + "]";
+        
+        // 输出结果
+        for (PersonAddress personAddress : personAddressList) {
+            System.out.println(personAddress);
         }
     }
 }
+
+// Person类
+class Person {
+    private String name;
+    private int age;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+}
+
+// Address类
+class Address {
+    private String name;
+    private String address;
+    
+    public Address(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+}
+
+// PersonAddress类，用于保存内联查询结果
+class PersonAddress {
+    private String name;
+    private int age;
+    private String address;
+    
+    public PersonAddress(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+    
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age + ", Address: " + address;
+    }
+}
 ``` 
-
-该示例中，我们创建了两个Person列表（personList1和personList2），然后创建了一个内联方法（innerJoin），该方法接受两个列表并返回内联结果。方法中使用了两个for循环，遍历每个列表中的每个元素，将两个列表中的名字相同的Person对象添加到结果集中。
-
-最后，我们在程序的main方法中调用了innerJoin方法，并将结果打印出来。
+以上代码将创建两个ArrayList（personList和addressList），并分别添加Person和Address对象。内联查询使用两个for循环，将personList和addressList中的元素逐个比较，如果它们的name字段相同，则将它们的信息添加到PersonAddress对象中，并将该对象添加到另一个ArrayList（personAddressList）中。最后，使用for循环遍历personAddressList，将查询结果输出到控制台。
 
 ## 用java实现一段代码，对一段文本做ecdsa签名
 ```java
